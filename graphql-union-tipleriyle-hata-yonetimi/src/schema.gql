@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+}
+
+type Query {
+  posts: [Post!]!
+}
+
+type Mutation {
+  createPost(title: String!, content: String!): CreatePostResult!
+}
+
+union CreatePostResult = Post | ShortContent | DuplicatePost
+
+type ShortContent {
+  field: String!
+  message: String!
+}
+
+type DuplicatePost {
+  message: String!
+  suggestion: String
+}
